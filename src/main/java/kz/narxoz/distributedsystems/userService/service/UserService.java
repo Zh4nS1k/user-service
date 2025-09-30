@@ -6,6 +6,7 @@ import kz.narxoz.distributedsystems.userService.model.User;
 import kz.narxoz.distributedsystems.userService.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -21,7 +22,7 @@ public class UserService {
     public UserDTO getUser(Long id) {
         return userRepository.findById(id)
                 .map(userMapper::toDto)
-                .orElse(null);
+                .orElse(null); // Возвращаем null если пользователь не найден
     }
 
     public UserDTO addUser(UserDTO userDTO) {
